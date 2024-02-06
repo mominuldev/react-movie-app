@@ -8,14 +8,15 @@ import { MovieContext } from "../context/movieContext";
 
 const Header = () => {
 	const [cartModalOpen, setCartModalOpen] = useState(false);
-	const { cartDate } = useContext(MovieContext);
-
-	console.log(cartDate);
+	const { cartData } = useContext(MovieContext);
 
 	return (
 		<>
 			{cartModalOpen && (
-				<CartDetails closeModal={() => setCartModalOpen(false)} />
+				<CartDetails
+					closeModal={() => setCartModalOpen(false)}
+					movie={cartData}
+				/>
 			)}
 			<header>
 				<nav className="container flex items-center justify-between space-x-10 py-6">
@@ -62,9 +63,9 @@ const Header = () => {
 									height="24"
 									alt="Shoping Cart"
 								/>
-								{cartDate?.length > 0 && (
+								{cartData.length > 0 && (
 									<span className="bg-primary text-[#171923] rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold absolute -top-1 -right-1">
-										{cartDate.length}
+										{cartData.length}
 									</span>
 								)}
 							</a>
