@@ -1,12 +1,16 @@
+import { useState, useContext } from "react";
 import logo from "../assets/logo.svg";
 import iconRing from "../assets/ring.svg";
 import shopingCart from "../assets/shopping-cart.svg";
 import moon from "../assets/icons/moon.svg";
-import { useState } from "react";
 import CartDetails from "./cine/CartDetails";
+import { MovieContext } from "../context/movieContext";
 
 const Header = () => {
 	const [cartModalOpen, setCartModalOpen] = useState(false);
+	const { cartDate } = useContext(MovieContext);
+
+	console.log(cartDate);
 
 	return (
 		<>
@@ -58,6 +62,11 @@ const Header = () => {
 									height="24"
 									alt="Shoping Cart"
 								/>
+								{cartDate?.length > 0 && (
+									<span className="bg-primary text-[#171923] rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold absolute -top-1 -right-1">
+										{cartDate.length}
+									</span>
+								)}
 							</a>
 						</li>
 					</ul>
