@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import { MovieContext } from "../../context/movieContext.js";
 import { getImgUrl } from "../../utils/cine-utility.js";
 
 const MovieDetailsModal = ({ movie, closeModal, onAddToCart }) => {
-	const { cartData, setCartData } = useContext(MovieContext);
-
 	return (
 		<div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
 			<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[984px] p-4 max-h-[90vh] overflow-auto">

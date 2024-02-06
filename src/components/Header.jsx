@@ -3,12 +3,14 @@ import logo from "../assets/logo.svg";
 import iconRing from "../assets/ring.svg";
 import shopingCart from "../assets/shopping-cart.svg";
 import moon from "../assets/icons/moon.svg";
+import sun from "../assets/icons/sun.svg";
 import CartDetails from "./cine/CartDetails";
-import { MovieContext } from "../context/movieContext";
+import { ThemeContext, MovieContext } from "../context/movieContext";
 
 const Header = () => {
 	const [cartModalOpen, setCartModalOpen] = useState(false);
 	const { cartData } = useContext(MovieContext);
+	const { darkMode, setDarkMode } = useContext(ThemeContext);
 
 	return (
 		<>
@@ -44,7 +46,7 @@ const Header = () => {
 								href="#"
 							>
 								<img
-									src={moon}
+									src={darkMode ? sun : moon}
 									width="24"
 									height="24"
 									alt="Mood"
